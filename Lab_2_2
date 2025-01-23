@@ -1,24 +1,23 @@
 #include "pico/stdlib.h"
 
-int main(){
-  for (int i = 0; i<5; i++){
-    gpio_init(i);
-    gpio_set_dir(i, GPIO_OUT);
-  }
-  while(true){
-    for (int i =0; i<5; i++){
-      gpio_put(i, 1);
-      sleep_ms(200);
-      gpio_put(i,0);
-      sleep_ms(200);
-      sleep_ms(1000);
-    }
-    return(0);
 
-
-  }
-
-
-
-
+int main() {
+	for (int i =0; i<5; i++){
+		gpio_init(i);
+		gpio_set_dir(i, GPIO_OUT);
+	}
+	
+		
+	while(true) {
+		for (int i=0; i<5;i++){
+		gpio_put(i,1);
+		sleep_ms(200);
+		gpio_put(i,0);
+		sleep_ms(200);
+		}
+		sleep_ms(1000);
+	}	
+	return(0);
 }
+
+
