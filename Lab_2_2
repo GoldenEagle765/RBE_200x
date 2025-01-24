@@ -1,21 +1,21 @@
-#include "pico/stdlib.h"
+#include "pico/stdlib.h" //Include the standard library
 
 
 int main() {
-	for (int i =0; i<5; i++){
-		gpio_init(i);
-		gpio_set_dir(i, GPIO_OUT);
+	for (int i =0; i<5; i++){ //For loop to initialize pins 0-4
+		gpio_init(i); //initialize GPIO pin i
+		gpio_set_dir(i, GPIO_OUT); //Set pin i as an output
 	}
 	
 		
-	while(true) {
-		for (int i=0; i<5;i++){
-		gpio_put(i,1);
-		sleep_ms(200);
-		gpio_put(i,0);
-		sleep_ms(200);
+	while(true) { //Create an infinite loop
+		for (int i=0; i<5;i++){ //For loop to blink each light at 5Hz with a small delay
+		gpio_put(i,1); //Writes 1 to pin i
+		sleep_ms(200); //Wait 200ms
+		gpio_put(i,0); //Writes 0 to pin i
+		sleep_ms(200); //Wait 200ms
 		}
-		sleep_ms(1000);
+		sleep_ms(1000); //Wait 1s in between iterations 
 	}	
 	return(0);
 }
