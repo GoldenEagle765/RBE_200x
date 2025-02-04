@@ -10,7 +10,7 @@ int main() {
 	adc_select_input(26);//Set GPIO 26 as an ADC input
 	float factor=3.3/(1<<12); //Create a factor to convert ADC readings to voltage
 	  while(true){
-		if(adc_read()*factor>0.3){//If the voltage is greated than 0.3v
+		if(adc_read()*factor>0.132){//If the voltage is greated than 0.3v
 		  gpio_put(20,0);//Set GPIO 20 to Logic 0
 		  sleep_ms(20/((adc_read()*factor)/3.3));//Dynamic sleep based on voltage
 		  gpio_put(20,1);//Set GPIO 20 to Logic 1
