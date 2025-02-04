@@ -15,7 +15,7 @@ int main() {
 	
 	  while(true){
 	      if(gpio_get(0)==1){//If the button is not pressed
-		if(adc_read()*factor>0.3){//If the voltage is greated than 0.3v
+		if(adc_read()*factor>0.132){//If the voltage is greated than 0.3v
 		  gpio_put(20,0);//Set GPIO 20 to Logic 0
 		  sleep_ms(20/((adc_read()*factor)/3.3));//Dynamic sleep based on voltage
 		  gpio_put(20,1);//Set GPIO 20 to Logic 1
