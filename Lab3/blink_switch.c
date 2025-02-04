@@ -10,7 +10,8 @@ int main() {
 	gpio_init(20);//Initialize GPIO 20
 	gpio_set_dir(20,GPIO_OUT);//Set GPIO 20 as an output
 	adc_select_input(26);//Set GPIO 26 as an ADC input
-	gpio_pull_down(0);//Enable pull down resistor of GPIO 0
+	gpio_set_pulls(0,true,false);//Enable pull down resistor of GPIO 0
+	gpio_set_pulls(20,true,false);
 	float factor=3.3/(1<<12); //Create a factor to convert ADC readings to voltage
 	
 	  while(true){
